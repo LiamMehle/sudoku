@@ -10,7 +10,9 @@ merjenje časa?
 
 
 Liam:
+
 vid:
+
 Simon:
 
 opravljeno:
