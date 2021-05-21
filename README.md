@@ -7,6 +7,8 @@ preverjanje ali je vpisano število pravilno
 glavni menij
 merjenje časa?
 
+opcionalno delo:
+animacije
 
 
 Liam:
