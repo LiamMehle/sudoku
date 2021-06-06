@@ -1,0 +1,3 @@
+/home/wolf/git/sudoku/CMakeFiles/rebuild_cache.dir
+/home/wolf/git/sudoku/CMakeFiles/edit_cache.dir
+/home/wolf/git/sudoku/CMakeFiles/sudoku.dir
