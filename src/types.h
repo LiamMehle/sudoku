@@ -9,4 +9,4 @@ typedef struct { // fits in a single 64 bit register
 
 typedef uint8_t Board[9*9];
 
-typedef uint64_t Settings;
+typedef uint8_t Settings;

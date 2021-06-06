@@ -10,13 +10,13 @@
  * @brief vrne offset za Board
  * vrne razmak naslova elementa podanega z koordinati v 'Board' podatkovnem tipu.
  * validnost parametrov ni preverjena
- * @param koordinata v x osi
- * @param koordinata v y osi
+ * @param x koordinata v x osi
+ * @param y koordinata v y osi
  * @return offset izračunan iz x in y osi (ter podatki podatkovnega tipa 'board')
  */
 
 // returns offset into board
-//[[maybe_unused]] // supress warnings
+// // supress warnings
 //static
 //short at(int x, int y) {
 //	return x + y*9;
@@ -28,8 +28,8 @@
  * @brief vrne offset za frame buffer
  * vrne razmak naslova elementa podanega z koordinati v 'FrameBuffer' podatkovnem tipu.
  * validnost parametrov ni preverjena
- * @param koordinata v x osi
- * @param koordinata v y osi
+ * @param x koordinata v x osi
+ * @param y koordinata v y osi
  * @return offset izračunan iz x in y osi (ter podatki podatkovnega tipa 'FrameBuffer')
  */
 
