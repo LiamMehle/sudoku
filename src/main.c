@@ -29,7 +29,8 @@ void show_main_menu() {
 	"----< main menu >----\n"
 	"1: play\n"
 	"2: settings\n"
-	"3: exit\n"
+	"3: tutorial\n"
+	"4: exit\n"
 	"----< ====[]=== >----\n";
 	fwrite(menu, sizeof menu, 1, stdout);
 }

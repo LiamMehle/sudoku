@@ -4,6 +4,15 @@
 #include <stddef.h>
 #include <assert.h>
 
+/**
+ * @brief vrne offset
+ * vrne razmak naslova elementa podanega z koordinati v 'Board' podatkovnem tipu.
+ * validnost parametrov ni preverjena
+ * @param koordinata v x osi
+ * @param koordinata v y osi
+ * @return offset izračunan iz x in y osi (ter podatki podatkovnega tipa 'board')
+ */
+
 // returns offset into board
 [[maybe_unused]] // supress warnings
 static
