@@ -18,10 +18,6 @@ I|_|_|_|_|_|_|_|_|_|
 
 */
 
-short board_at(const short x, const short y) {
-	return y*21+x;
-}
-
 FrameBuffer make_framebuffer() {
 	FrameBuffer ret = {
 		.dim_x = width,
@@ -37,6 +33,7 @@ FrameBuffer make_framebuffer() {
 		WRITE(' ');
 		WRITE('A'+x);
 	}
+	WRITE(' ');
 	WRITE('\n');
 
 	for(int y = 0; y < 9; y++) {
@@ -127,7 +124,7 @@ void board_to_framebuffer(Board board, FrameBuffer fb) {
 		for(int x = 0; x < 9; x++) {
 			const int digit = board[at(x,y)];
 			const int frame_y = 1 + y;
-			const int frame_x = 1 + x*2;
+			const int frame_x = (x+1)*2;
 			const int offset = frame_y*21+frame_x;
 			//printf("x: %d y: %d off: %d\n", frame_x, frame_y, offset);
 			//print_frame_buffer(fb);

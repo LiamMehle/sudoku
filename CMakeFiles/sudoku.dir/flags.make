@@ -6,5 +6,5 @@ C_DEFINES =
 
 C_INCLUDES = 
 
-C_FLAGS = -g -Wall -Wextra -Wshadow -Ofast -mtune=skylake -std=gnu11
+C_FLAGS = -g -Wall -Wextra -Wshadow -O0 -mtune=skylake -std=gnu11
 

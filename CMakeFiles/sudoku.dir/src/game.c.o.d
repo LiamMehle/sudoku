@@ -12,14 +12,15 @@ CMakeFiles/sudoku.dir/src/game.c.o: /home/wolf/git/sudoku/src/game.c \
  /usr/include/bits/stdint-uintn.h /home/wolf/git/sudoku/src/screen_ops.h \
  /home/wolf/git/sudoku/src/frame_buffer_ops.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/stddef.h \
- /usr/include/stdio.h \
+ /usr/include/assert.h /usr/include/stdio.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/stdarg.h \
  /usr/include/bits/types/__fpos_t.h /usr/include/bits/types/__mbstate_t.h \
  /usr/include/bits/types/__fpos64_t.h /usr/include/bits/types/__FILE.h \
  /usr/include/bits/types/FILE.h /usr/include/bits/types/struct_FILE.h \
  /usr/include/bits/stdio_lim.h /usr/include/bits/floatn.h \
- /usr/include/bits/floatn-common.h /usr/include/bits/stdio.h \
+ /usr/include/bits/floatn-common.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/stdbool.h \
  /usr/include/ctype.h /usr/include/bits/endian.h \
  /usr/include/bits/endianness.h /usr/include/bits/types/locale_t.h \
- /usr/include/bits/types/__locale_t.h
+ /usr/include/bits/types/__locale_t.h /usr/include/string.h \
+ /usr/include/strings.h

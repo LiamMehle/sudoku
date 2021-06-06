@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <ctype.h>
+#include <string.h>
 
 char get_game_input(short* const x_out,
                     short* const y_out,
@@ -55,22 +56,25 @@ char get_game_input(short* const x_out,
 
 void start_game([[maybe_unused]]const Settings settings) {
 
-	Board board = { 9,0,0,2,3,7,6,8,0,
-	                0,2,0,8,4,0,0,7,3,
-	                8,0,7,1,0,5,0,2,9,
-	                0,0,4,5,9,8,3,0,0,
-	                2,0,0,0,0,1,0,0,6,
-	                5,1,0,0,0,0,0,4,7,
-	                4,0,1,3,0,6,2,9,5,
-	                0,5,0,9,1,0,7,3,8,
-	                3,0,8,0,5,0,0,0,0 };
+	const Board original_board = { 9,0,0,2,3,7,6,8,0,
+	                               0,2,0,8,4,0,0,7,3,
+	                               8,0,7,1,0,5,0,2,9,
+	                               0,0,4,5,9,8,3,0,0,
+	                               2,0,0,0,0,1,0,0,6,
+	                               5,1,0,0,0,0,0,4,7,
+	                               4,0,1,3,0,6,2,9,5,
+	                               0,5,0,9,1,0,7,3,8,
+	                               3,0,8,0,5,0,0,0,0 };
+
+	Board active_board;
+	memcpy(active_board, original_board, sizeof(Board));
 
 	FrameBuffer fb = make_framebuffer();
+	board_to_framebuffer(active_board, fb);
 	char dirty_input = 0;
 
 	while(1) {
 		// output
-		board_to_framebuffer(board, fb);
 		//clear_screen();
 		print_frame_buffer(fb);
 		if(dirty_input) {
@@ -93,7 +97,12 @@ void start_game([[maybe_unused]]const Settings settings) {
 		|| digit < 0 || digit > 9) {
 			dirty_input = 1;
 		}
-		board[at(x, y)] = digit;
+
+		// input is (assumed to be) valid
+		active_board[at(x, y)] = digit;    // update board
+		// updating the framebuffer directly with the change is faster than
+		// redrawing the entire buffer
+		fb.data[fb_at(x,y)] = digit != 0 ? digit+'0' : '_';
 	}
 }
 
