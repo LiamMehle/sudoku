@@ -18,6 +18,10 @@ enum menu_options {
 	menu_exit = 3
 };
 
+/**
+ * @brief glavni meni
+ * napiše glavni meni z funkcijo fwrite()
+ */
 static
 inline
 void show_main_menu() {
@@ -30,6 +34,11 @@ void show_main_menu() {
 	fwrite(menu, sizeof menu, 1, stdout);
 }
 
+/**
+ * @brief vrne celo število od uporabnika
+ * upraša po in vrne vrednost, ki je zahtevana (celo število)
+ * @return celo število uporabnika
+ */
 static
 inline
 int get_int() {

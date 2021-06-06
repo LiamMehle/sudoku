@@ -5,6 +5,3 @@
 #else
 	#define prefetch(x)
 #endif
-
-#define number_to_letter(x) (x+'A')
-#define letter_to_number(x) (x-'A')

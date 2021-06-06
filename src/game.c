@@ -65,7 +65,12 @@ char get_game_input(short* const x_out,
 	prevent givens from being modified
 */
 
-
+/**
+ * @brief zažene in izvaja logiko igre
+ * zažene in izvaja logiko igre
+ * @param nastavitve, ki igre
+ * 
+ */
 void start_game([[maybe_unused]]const Settings settings) {
 
 	const Board original_board = { 9,0,0,2,3,7,6,8,0,
