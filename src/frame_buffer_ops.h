@@ -16,7 +16,12 @@ void framebuffer_to_board(FrameBuffer fb, Board* board);
 void board_to_framebuffer(Board board, FrameBuffer fb);
 FrameBuffer framebuffer_clone(const FrameBuffer src);
 
- // supress warnings
+/**
+ * @brief testi
+ * Preveri ali delujeta funkciji make_framebuffer() in fb_at()
+ * V primeru napake se program takoj zaključi in piše kje ne prišlo do napake.
+ * @return trenutno vendo vrne 0.
+ */
 static
 char test0() {
 	assert(make_framebuffer().data[fb_at(0,0)] == '_');
