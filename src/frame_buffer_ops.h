@@ -16,7 +16,7 @@ void framebuffer_to_board(FrameBuffer fb, Board* board);
 void board_to_framebuffer(Board board, FrameBuffer fb);
 FrameBuffer framebuffer_clone(const FrameBuffer src);
 
-[[maybe_unused]] // supress warnings
+ // supress warnings
 static
 char test0() {
 	assert(make_framebuffer().data[fb_at(0,0)] == '_');

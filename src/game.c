@@ -73,7 +73,7 @@ char get_game_input(short* const x_out,
 /**
  * @brief zažene in izvaja logiko igre
  * zažene in izvaja logiko igre
- * @param nastavitve, ki igre
+ * @param Settings nastavitve, ki igre
  * 
  */
 void start_game([[maybe_unused]]const Settings settings) {
