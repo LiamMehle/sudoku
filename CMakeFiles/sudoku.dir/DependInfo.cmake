@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/wolf/git/sudoku/src/game.c" "CMakeFiles/sudoku.dir/src/game.c.o" "gcc" "CMakeFiles/sudoku.dir/src/game.c.o.d"
   "/home/wolf/git/sudoku/src/main.c" "CMakeFiles/sudoku.dir/src/main.c.o" "gcc" "CMakeFiles/sudoku.dir/src/main.c.o.d"
   "/home/wolf/git/sudoku/src/screen_ops.c" "CMakeFiles/sudoku.dir/src/screen_ops.c.o" "gcc" "CMakeFiles/sudoku.dir/src/screen_ops.c.o.d"
+  "/home/wolf/git/sudoku/src/sudoku_validity_check.c" "CMakeFiles/sudoku.dir/src/sudoku_validity_check.c.o" "gcc" "CMakeFiles/sudoku.dir/src/sudoku_validity_check.c.o.d"
   )
 
 # Targets to which this target links.

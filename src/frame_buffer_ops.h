@@ -3,27 +3,7 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <assert.h>
-
-/**
- * @brief vrne offset
- * vrne razmak naslova elementa podanega z koordinati v 'Board' podatkovnem tipu.
- * validnost parametrov ni preverjena
- * @param koordinata v x osi
- * @param koordinata v y osi
- * @return offset izračunan iz x in y osi (ter podatki podatkovnega tipa 'board')
- */
-
-// returns offset into board
-[[maybe_unused]] // supress warnings
-static
-short at(int x, int y) {
-	return x + y*9;
-}
-
-static
-short fb_at(const short x, const short y) {
-	return (y+1)*21+(x+1)*2;
-}
+#include "utils.h"
 
 #define width            21
 #define height           10

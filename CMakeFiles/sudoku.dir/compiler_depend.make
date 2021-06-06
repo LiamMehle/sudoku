@@ -23,6 +23,7 @@ CMakeFiles/sudoku.dir/src/frame_buffer_ops.c.o: src/frame_buffer_ops.c \
   /usr/include/bits/stdint-uintn.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/stddef.h \
   /usr/include/assert.h \
+  src/utils.h \
   /usr/include/stdio.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/stdarg.h \
   /usr/include/bits/types/__fpos_t.h \
@@ -86,6 +87,7 @@ CMakeFiles/sudoku.dir/src/game.c.o: src/game.c \
   /usr/include/bits/wchar.h \
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-uintn.h \
+  src/utils.h \
   src/screen_ops.h \
   src/frame_buffer_ops.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/stddef.h \
@@ -108,7 +110,8 @@ CMakeFiles/sudoku.dir/src/game.c.o: src/game.c \
   /usr/include/bits/types/locale_t.h \
   /usr/include/bits/types/__locale_t.h \
   /usr/include/string.h \
-  /usr/include/strings.h
+  /usr/include/strings.h \
+  src/sudoku_validity_check.h
 
 CMakeFiles/sudoku.dir/src/main.c.o: src/main.c \
   /usr/include/stdc-predef.h \
@@ -136,6 +139,7 @@ CMakeFiles/sudoku.dir/src/main.c.o: src/main.c \
   /usr/include/bits/stdint-uintn.h \
   src/frame_buffer_ops.h \
   /usr/include/assert.h \
+  src/utils.h \
   /usr/include/alloca.h \
   /usr/include/stdio.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/stdarg.h \
@@ -220,6 +224,30 @@ CMakeFiles/sudoku.dir/src/screen_ops.c.o: src/screen_ops.c \
   /usr/include/strings.h \
   src/common.h
 
+CMakeFiles/sudoku.dir/src/sudoku_validity_check.c.o: src/sudoku_validity_check.c \
+  /usr/include/stdc-predef.h \
+  src/sudoku_validity_check.h \
+  src/types.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/features.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  src/utils.h
+
+
+src/sudoku_validity_check.c:
 
 src/common.h:
 
@@ -238,6 +266,12 @@ src/game.c:
 /usr/include/bits/types/locale_t.h:
 
 /usr/include/ctype.h:
+
+/usr/include/bits/stdlib-float.h:
+
+/usr/include/bits/types/__FILE.h:
+
+src/sudoku_validity_check.h:
 
 /usr/include/bits/types/FILE.h:
 
@@ -268,6 +302,8 @@ src/game.h:
 src/frame_buffer_ops.c:
 
 src/screen_ops.c:
+
+src/utils.h:
 
 src/frame_buffer_ops.h:
 
@@ -319,6 +355,10 @@ src/types.h:
 
 /usr/include/stdlib.h:
 
+/usr/include/bits/struct_rwlock.h:
+
+/usr/include/bits/types/time_t.h:
+
 /usr/include/bits/waitstatus.h:
 
 /usr/include/bits/types/clock_t.h:
@@ -339,10 +379,6 @@ src/types.h:
 
 /usr/include/bits/types/sigset_t.h:
 
-/usr/include/bits/types/__FILE.h:
-
-/usr/include/bits/stdlib-float.h:
-
 /usr/include/bits/stdio_lim.h:
 
 /usr/include/bits/types/struct_timeval.h:
@@ -356,9 +392,5 @@ src/types.h:
 /usr/include/stdc-predef.h:
 
 /usr/include/bits/pthreadtypes-arch.h:
-
-/usr/include/bits/types/time_t.h:
-
-/usr/include/bits/struct_rwlock.h:
 
 /usr/include/alloca.h:

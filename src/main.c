@@ -10,12 +10,14 @@
 #include "game.h"
 #include "screen_ops.h"
 #include "common.h"
+
 #define log_line 	printf("%d\n", __LINE__); fflush(stdout)
 
 enum menu_options {
 	menu_play = 1,
 	menu_settings = 2,
-	menu_exit = 3
+	menu_tutorial = 3,
+	menu_exit = 4
 };
 
 /**
@@ -78,6 +80,22 @@ Settings settings_menu() {
 	return 0;
 }
 
+/**
+ * @brief glavni navodila
+ * napiše glavni navodila z funkcijo fwrite()
+ */
+void show_tutorial() {
+	const char text[] =
+	"\n"
+	"O/o - show original problem\n"
+	"Q/q - quit\n"
+	"xyv - example: ab3\n"
+	"|||\n"
+	"||`-value, 0 = empty\n"
+	"|`--y coordinate\n"
+	"`---X coordinate\n";
+	fwrite(text, sizeof text, 1, stdout);
+}
 int main() {
 	// testing purposes
 	//test0();
@@ -96,6 +114,9 @@ int main() {
 			break;
 		case menu_settings:
 			settings = settings_menu();
+			break;
+		case menu_tutorial:
+			show_tutorial();
 			break;
 		case menu_exit:
 			return 0;

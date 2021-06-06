@@ -225,6 +225,30 @@ src/screen_ops.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/screen_ops.c.s
 .PHONY : src/screen_ops.c.s
 
+src/sudoku_validity_check.o: src/sudoku_validity_check.c.o
+.PHONY : src/sudoku_validity_check.o
+
+# target to build an object file
+src/sudoku_validity_check.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/sudoku_validity_check.c.o
+.PHONY : src/sudoku_validity_check.c.o
+
+src/sudoku_validity_check.i: src/sudoku_validity_check.c.i
+.PHONY : src/sudoku_validity_check.i
+
+# target to preprocess a source file
+src/sudoku_validity_check.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/sudoku_validity_check.c.i
+.PHONY : src/sudoku_validity_check.c.i
+
+src/sudoku_validity_check.s: src/sudoku_validity_check.c.s
+.PHONY : src/sudoku_validity_check.s
+
+# target to generate assembly for a file
+src/sudoku_validity_check.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/sudoku_validity_check.c.s
+.PHONY : src/sudoku_validity_check.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -246,6 +270,9 @@ help:
 	@echo "... src/screen_ops.o"
 	@echo "... src/screen_ops.i"
 	@echo "... src/screen_ops.s"
+	@echo "... src/sudoku_validity_check.o"
+	@echo "... src/sudoku_validity_check.i"
+	@echo "... src/sudoku_validity_check.s"
 .PHONY : help
 
 

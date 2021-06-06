@@ -9,7 +9,8 @@ CMakeFiles/sudoku.dir/src/game.c.o: /home/wolf/git/sudoku/src/game.c \
  /usr/include/bits/types.h /usr/include/bits/timesize.h \
  /usr/include/bits/typesizes.h /usr/include/bits/time64.h \
  /usr/include/bits/wchar.h /usr/include/bits/stdint-intn.h \
- /usr/include/bits/stdint-uintn.h /home/wolf/git/sudoku/src/screen_ops.h \
+ /usr/include/bits/stdint-uintn.h /home/wolf/git/sudoku/src/utils.h \
+ /home/wolf/git/sudoku/src/screen_ops.h \
  /home/wolf/git/sudoku/src/frame_buffer_ops.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/stddef.h \
  /usr/include/assert.h /usr/include/stdio.h \
@@ -23,4 +24,4 @@ CMakeFiles/sudoku.dir/src/game.c.o: /home/wolf/git/sudoku/src/game.c \
  /usr/include/ctype.h /usr/include/bits/endian.h \
  /usr/include/bits/endianness.h /usr/include/bits/types/locale_t.h \
  /usr/include/bits/types/__locale_t.h /usr/include/string.h \
- /usr/include/strings.h
+ /usr/include/strings.h /home/wolf/git/sudoku/src/sudoku_validity_check.h

@@ -1,4 +1,5 @@
 #include "game.h"
+#include "utils.h"
 #include "types.h"
 #include "screen_ops.h"
 #include "frame_buffer_ops.h"
@@ -6,6 +7,7 @@
 #include <stdbool.h>
 #include <ctype.h>
 #include <string.h>
+#include "sudoku_validity_check.h"
 
 enum input {
 	input_clear = 0,
@@ -13,6 +15,9 @@ enum input {
 	input_invalid,
 	input_given_overwrite,
 	input_quit,
+	input_row_invalid,
+	input_col_invalid,
+	input_grid_invalid,
 	input_print_original
 };
 
@@ -99,16 +104,43 @@ void start_game([[maybe_unused]]const Settings settings) {
 			print_frame_buffer(original_fb);
 			input_flag = input_clear;
 		}
-		print_frame_buffer(fb);
-		if(input_flag == input_invalid || input_flag == input_failed_input) {
-			puts("Invalid input!");
-			input_flag = input_clear;
-		} else if(input_flag == input_given_overwrite) {
-			puts("It's a given.");
-			input_flag = input_clear;
-		} else if(input_flag == input_quit){
-			return;
+
+		print_frame_buffer(fb); // <---------
+
+		if(input_flag == input_invalid)
+			input_flag = input_failed_input;
+
+		switch(input_flag) {
+			case input_failed_input:
+				puts("Invalid input!");
+				break;
+
+			case input_quit:
+				return;
+
+			case input_given_overwrite:
+				puts("It's a given.");
+				break;
+
+			case input_row_invalid:
+				puts("Invalid row.");
+				break;
+
+			case input_col_invalid:
+				puts("Invalid collum.");
+				break;
+
+			case input_grid_invalid:
+				puts("Invalid grid.");
+				break;
+
+			case input_clear:
+				break;
+
+			default:
+				printf("error=%d\n", input_flag);
 		}
+		input_flag = input_clear;
 
 		// input
 		short x, y, digit;
@@ -125,6 +157,19 @@ void start_game([[maybe_unused]]const Settings settings) {
 		// check if it's a given
 		if(original_board[at(x,y)] != 0) {
 			input_flag = input_given_overwrite;
+			continue;
+		}
+
+		if(check_row(active_board, y, digit)) {
+			input_flag = input_row_invalid;
+			continue;
+		}
+		if(check_collum(active_board, x, digit)) {
+			input_flag = input_col_invalid;
+			continue;
+		}
+		if(check_grid(active_board, y, x, digit)) {
+			input_flag = input_grid_invalid;
 			continue;
 		}
 
