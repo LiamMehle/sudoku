@@ -7,6 +7,13 @@
 #include <ctype.h>
 #include <string.h>
 
+enum input {
+	input_failed_input = 1,
+	input_invalid,
+	input_given_overwrite,
+	input_quit
+};
+
 char get_game_input(short* const x_out,
                     short* const y_out,
                     short* const digit_out) {
@@ -21,7 +28,7 @@ char get_game_input(short* const x_out,
 			break;
 		// -------------- special case -------------------
 		if(x == 'q' || x == 'Q')
-			return 1;
+			return input_quit;
 		if(isalnum(x))
 			return -1;
 	}
@@ -30,14 +37,14 @@ char get_game_input(short* const x_out,
 		if((y >= 'A' && y <= 'I') || (y >= 'a' && y <= 'i'))
 			break;
 		if(isalnum(y))
-			return -2;
+			return input_invalid;
 	}
 	while(1) {
 		digit = getchar();
 		if(digit >= '0' && digit <= '9')
 			break;
 		if(isalpha(digit))
-			return -3;
+			return input_invalid;
 	}
 	if(x >= 'a' && x <= 'i')
 		x = x + 'A' - 'a';
@@ -53,6 +60,7 @@ char get_game_input(short* const x_out,
 	todo:
 	prevent givens from being modified
 */
+
 
 void start_game([[maybe_unused]]const Settings settings) {
 
@@ -77,26 +85,31 @@ void start_game([[maybe_unused]]const Settings settings) {
 		// output
 		//clear_screen();
 		print_frame_buffer(fb);
-		if(dirty_input) {
+		if(dirty_input == input_invalid || dirty_input == input_failed_input) {
 			puts("Invalid input!");
+			dirty_input = 0;
+		} else if(dirty_input == input_given_overwrite) {
+			puts("It's a given.");
 			dirty_input = 0;
 		}
 
 		// input
 		short x, y, digit;
 		const char err = get_game_input(&x, &y, &digit);
-		if(err == 1) // quit
+		if(err == input_quit) // quit
 			return;
-		if(err) {
+		if(err == input_invalid) {
 			dirty_input = 1;
 			continue;
 		}
-		// check parameters
+		// check input
 		if(x < 0 || x > 9
 		|| y < 0 || x > 9
 		|| digit < 0 || digit > 9) {
-			dirty_input = 1;
+			dirty_input = input_invalid;
 		}
+
+
 
 		// input is (assumed to be) valid
 		active_board[at(x, y)] = digit;    // update board
