@@ -25,6 +25,7 @@ void print_board(uint8_t* board);
 int print_frame_buffer(FrameBuffer fb);
 void framebuffer_to_board(FrameBuffer fb, Board* board);
 void board_to_framebuffer(Board board, FrameBuffer fb);
+FrameBuffer framebuffer_clone(const FrameBuffer src);
 
 [[maybe_unused]] // supress warnings
 static

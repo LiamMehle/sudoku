@@ -33,4 +33,5 @@ CMakeFiles/sudoku.dir/src/frame_buffer_ops.c.o: \
  /usr/include/bits/pthreadtypes-arch.h /usr/include/bits/struct_mutex.h \
  /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/bits/stdlib-float.h /usr/include/ctype.h \
- /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h
+ /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
+ /usr/include/string.h /usr/include/strings.h

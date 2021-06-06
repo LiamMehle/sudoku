@@ -62,7 +62,9 @@ CMakeFiles/sudoku.dir/src/frame_buffer_ops.c.o: src/frame_buffer_ops.c \
   /usr/include/bits/stdlib-float.h \
   /usr/include/ctype.h \
   /usr/include/bits/types/locale_t.h \
-  /usr/include/bits/types/__locale_t.h
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/string.h \
+  /usr/include/strings.h
 
 CMakeFiles/sudoku.dir/src/game.c.o: src/game.c \
   /usr/include/stdc-predef.h \
@@ -223,13 +225,13 @@ src/common.h:
 
 src/main.c:
 
-/usr/include/strings.h:
-
 /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/stdbool.h:
 
 src/screen_ops.h:
 
 src/game.c:
+
+/usr/include/strings.h:
 
 /usr/include/bits/types/__locale_t.h:
 
@@ -249,9 +251,9 @@ src/game.c:
 
 /usr/include/bits/wchar.h:
 
-/usr/include/string.h:
-
 src/game.h:
+
+/usr/include/string.h:
 
 /usr/include/bits/time64.h:
 

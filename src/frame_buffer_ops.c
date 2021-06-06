@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 /*
 empty frame buffer
   A B C D E F G H I
@@ -134,4 +135,14 @@ void board_to_framebuffer(Board board, FrameBuffer fb) {
 				fb.data[offset] = digit + '0';
 		}
 	}
+}
+
+FrameBuffer framebuffer_clone(const FrameBuffer src) {
+	FrameBuffer dst = {
+		.dim_x = width,
+		.dim_y = height,
+		.data = malloc(framebuffer_size)
+	};
+	memcpy(dst.data, src.data, framebuffer_size);
+	return dst;
 }

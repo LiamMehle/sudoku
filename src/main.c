@@ -69,10 +69,10 @@ Settings settings_menu() {
 }
 
 int main() {
-
-	test0();
-	start_game(0);
-	return 0;
+	// testing purposes
+	//test0();
+	//start_game(0);
+	//return 0;
 
 	clear_screen();
 

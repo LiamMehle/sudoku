@@ -8,10 +8,12 @@
 #include <string.h>
 
 enum input {
+	input_clear = 0,
 	input_failed_input = 1,
 	input_invalid,
 	input_given_overwrite,
-	input_quit
+	input_quit,
+	input_print_original
 };
 
 char get_game_input(short* const x_out,
@@ -29,6 +31,8 @@ char get_game_input(short* const x_out,
 		// -------------- special case -------------------
 		if(x == 'q' || x == 'Q')
 			return input_quit;
+		if(x == 'o' || x == 'O')
+			return input_print_original;
 		if(isalnum(x))
 			return -1;
 	}
@@ -79,37 +83,45 @@ void start_game([[maybe_unused]]const Settings settings) {
 
 	FrameBuffer fb = make_framebuffer();
 	board_to_framebuffer(active_board, fb);
-	char dirty_input = 0;
+	const FrameBuffer original_fb = framebuffer_clone(fb);;
+
+	char input_flag = input_clear;
 
 	while(1) {
 		// output
-		//clear_screen();
+		clear_screen();
+		if(input_flag == input_print_original) {
+			print_frame_buffer(original_fb);
+			input_flag = input_clear;
+		}
 		print_frame_buffer(fb);
-		if(dirty_input == input_invalid || dirty_input == input_failed_input) {
+		if(input_flag == input_invalid || input_flag == input_failed_input) {
 			puts("Invalid input!");
-			dirty_input = 0;
-		} else if(dirty_input == input_given_overwrite) {
+			input_flag = input_clear;
+		} else if(input_flag == input_given_overwrite) {
 			puts("It's a given.");
-			dirty_input = 0;
+			input_flag = input_clear;
+		} else if(input_flag == input_quit){
+			return;
 		}
 
 		// input
 		short x, y, digit;
-		const char err = get_game_input(&x, &y, &digit);
-		if(err == input_quit) // quit
-			return;
-		if(err == input_invalid) {
-			dirty_input = 1;
+		input_flag = get_game_input(&x, &y, &digit);
+		if(input_flag)       // state has been set by get_game_input()
 			continue;
-		}
 		// check input
 		if(x < 0 || x > 9
 		|| y < 0 || x > 9
 		|| digit < 0 || digit > 9) {
-			dirty_input = input_invalid;
+			input_flag = input_invalid;
 		}
 
-
+		// check if it's a given
+		if(original_board[at(x,y)] != 0) {
+			input_flag = input_given_overwrite;
+			continue;
+		}
 
 		// input is (assumed to be) valid
 		active_board[at(x, y)] = digit;    // update board
