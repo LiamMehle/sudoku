@@ -21,6 +21,15 @@ enum input {
 	input_print_original
 };
 
+/**
+ * @brief sprejme vkaze iz konzole
+ * Čaka na vkaze, preveri, da so koherentni in jih posreduje preko kazalcev.
+ * @param x_out kazalec na x koordinato
+ * @param y_out kazalec na y koordinato
+ * @param digit_out kazalec na število
+ * @return v primeru napake bo vrnjena vrednost input_failed_input. Če uporabnik želi igro zaključiti bo vrnjena input_quit. Če uporabnik želi prikazati začetno stanje bo vrnjena vrednost input_print_original.
+ */
+
 char get_game_input(short* const x_out,
                     short* const y_out,
                     short* const digit_out) {
@@ -73,7 +82,7 @@ char get_game_input(short* const x_out,
 /**
  * @brief zažene in izvaja logiko igre
  * zažene in izvaja logiko igre
- * @param Settings nastavitve, ki igre
+ * @param settings nastavitve, ki igre
  * 
  */
 void start_game(const Settings settings) {
