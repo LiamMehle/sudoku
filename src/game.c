@@ -74,11 +74,6 @@ char get_game_input(short* const x_out,
 	return 0;
 }
 
-/*
-	todo:
-	prevent givens from being modified
-*/
-
 /**
  * @brief zažene in izvaja logiko igre
  * zažene in izvaja logiko igre
