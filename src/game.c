@@ -10,6 +10,21 @@
 #include "sudoku_validity_check.h"
 #include "sudoku_solve.h"
 
+/**
+ * 
+ * @brief flags indicating how the next re-draw should be handled or modified
+ * 
+ * input_clear           = nič posebnega naj se zgodi
+ * input_failed_input    = neuspešno pridobil input uporabnika
+ * input_invalid         = input ni bil veljaven
+ * input_given_overwrite = uporabnik je probal prepisati celico, ki je že podana
+ * input_quit            = uporabnik želi zaključiti
+ * input_row_invalid     = število ne spada v to vrstico
+ * input_col_invalid     = število ne spada v ta stolpec
+ * input_grid_invalid    = število ne spada v to okno
+ * input_print_solved    = uporabnik želi videti rešen sudoku
+ * input_print_original  = uporabnik želi videti originalen sudoku
+ */
 enum input {
 	input_clear = 0,
 	input_failed_input = 1,
