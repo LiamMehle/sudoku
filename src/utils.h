@@ -40,3 +40,10 @@
 //}
 
 #define fb_at(x,y) ((y+1)*21+(x+1)*2)
+
+/**
+ * @brief napiše lokacijo v izvorni kodi.
+ * Macro, ki se razširi v printf funkcijo, ki napiše število vrstice v izvorni kodi.
+ */
+
+#define log_line    printf("%d\n", __LINE__); fflush(stdout)

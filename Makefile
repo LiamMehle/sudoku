@@ -225,6 +225,30 @@ src/screen_ops.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/screen_ops.c.s
 .PHONY : src/screen_ops.c.s
 
+src/sudoku_solve.o: src/sudoku_solve.c.o
+.PHONY : src/sudoku_solve.o
+
+# target to build an object file
+src/sudoku_solve.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/sudoku_solve.c.o
+.PHONY : src/sudoku_solve.c.o
+
+src/sudoku_solve.i: src/sudoku_solve.c.i
+.PHONY : src/sudoku_solve.i
+
+# target to preprocess a source file
+src/sudoku_solve.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/sudoku_solve.c.i
+.PHONY : src/sudoku_solve.c.i
+
+src/sudoku_solve.s: src/sudoku_solve.c.s
+.PHONY : src/sudoku_solve.s
+
+# target to generate assembly for a file
+src/sudoku_solve.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/sudoku_solve.c.s
+.PHONY : src/sudoku_solve.c.s
+
 src/sudoku_validity_check.o: src/sudoku_validity_check.c.o
 .PHONY : src/sudoku_validity_check.o
 
@@ -270,6 +294,9 @@ help:
 	@echo "... src/screen_ops.o"
 	@echo "... src/screen_ops.i"
 	@echo "... src/screen_ops.s"
+	@echo "... src/sudoku_solve.o"
+	@echo "... src/sudoku_solve.i"
+	@echo "... src/sudoku_solve.s"
 	@echo "... src/sudoku_validity_check.o"
 	@echo "... src/sudoku_validity_check.i"
 	@echo "... src/sudoku_validity_check.s"

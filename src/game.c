@@ -8,6 +8,7 @@
 #include <ctype.h>
 #include <string.h>
 #include "sudoku_validity_check.h"
+#include "sudoku_solve.h"
 
 enum input {
 	input_clear = 0,
@@ -18,6 +19,7 @@ enum input {
 	input_row_invalid,
 	input_col_invalid,
 	input_grid_invalid,
+	input_print_solved,
 	input_print_original
 };
 
@@ -29,7 +31,7 @@ enum input {
  * @param digit_out kazalec na število
  * @return v primeru napake bo vrnjena vrednost input_failed_input. Če uporabnik želi igro zaključiti bo vrnjena input_quit. Če uporabnik želi prikazati začetno stanje bo vrnjena vrednost input_print_original.
  */
-
+static
 char get_game_input(short* const x_out,
                     short* const y_out,
                     short* const digit_out) {
@@ -47,6 +49,8 @@ char get_game_input(short* const x_out,
 			return input_quit;
 		if(x == 'o' || x == 'O')
 			return input_print_original;
+		if(x == 's' || x == 'S')
+			return input_print_solved;
 		if(isalnum(x))
 			return -1;
 	}
@@ -82,15 +86,22 @@ char get_game_input(short* const x_out,
  */
 void start_game(const Settings settings) {
 
-	const Board original_board = { 9,0,0,2,3,7,6,8,0,
-	                               0,2,0,8,4,0,0,7,3,
-	                               8,0,7,1,0,5,0,2,9,
-	                               0,0,4,5,9,8,3,0,0,
-	                               2,0,0,0,0,1,0,0,6,
-	                               5,1,0,0,0,0,0,4,7,
-	                               4,0,1,3,0,6,2,9,5,
-	                               0,5,0,9,1,0,7,3,8,
-	                               3,0,8,0,5,0,0,0,0 };
+	Board original_board;
+	//if(settings & settings_preset_board) {
+		Board board = { 9,0,0,2,3,7,6,8,0,
+	                    0,2,0,8,4,0,0,7,3,
+	                    8,0,7,1,0,5,0,2,9,
+	                    0,0,4,5,9,8,3,0,0,
+	                    2,0,0,0,0,1,0,0,6,
+	                    5,1,0,0,0,0,0,4,7,
+	                    4,0,1,3,0,6,2,9,5,
+	                    0,5,0,9,1,0,7,3,8,
+	                    3,0,8,0,5,0,0,0,0 };
+		memcpy(original_board, board, sizeof(Board));
+	//} else if(settings & settings_load_board){
+	//	memset(original_board, 0, sizeof(board));
+	//	load_board_from_file(original_board);
+	//}
 
 	Board active_board;
 	memcpy(active_board, original_board, sizeof(Board));
@@ -105,7 +116,20 @@ void start_game(const Settings settings) {
 		// output
 		clear_screen();
 		if(input_flag == input_print_original) {
+			puts("------<original>-------");
 			print_frame_buffer(original_fb);
+			puts("------<        >-------");
+			input_flag = input_clear;
+		}
+		if(input_flag == input_print_solved) {
+			puts("------<solved>-------");
+			Board solved_board;
+			FrameBuffer solved_fb = make_framebuffer();
+			memcpy(solved_board, active_board, sizeof(Board));
+			solve_sudoku(solved_board);
+			board_to_framebuffer(solved_board, solved_fb);
+			print_frame_buffer(solved_fb);
+			puts("------<        >-------");
 			input_flag = input_clear;
 		}
 
@@ -131,7 +155,7 @@ void start_game(const Settings settings) {
 				break;
 
 			case input_col_invalid:
-				puts("Invalid collum.");
+				puts("Invalid column.");
 				break;
 
 			case input_grid_invalid:
@@ -164,17 +188,19 @@ void start_game(const Settings settings) {
 			continue;
 		}
 
-		if(check_row(active_board, y, digit)) {
-			input_flag = input_row_invalid;
-			continue;
-		}
-		if(check_collum(active_board, x, digit)) {
-			input_flag = input_col_invalid;
-			continue;
-		}
-		if(check_grid(active_board, y, x, digit)) {
-			input_flag = input_grid_invalid;
-			continue;
+		if(digit != 0) {
+			if(check_row(active_board, y, digit)) {
+				input_flag = input_row_invalid;
+				continue;
+			}
+			if(check_column(active_board, x, digit)) {
+				input_flag = input_col_invalid;
+				continue;
+			}
+			if(check_grid(active_board, y, x, digit)) {
+				input_flag = input_grid_invalid;
+				continue;
+			}
 		}
 
 		// input is (assumed to be) valid

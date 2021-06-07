@@ -30,7 +30,7 @@ int check_row(Board sudoku, int row, int liczba)
  * @return 0, če se število ne pojavi v stolpcu, ne-0 če se.
  */
 /* Function checks, if in given column the number already exists */
-int check_collum(Board sudoku, int column, int liczba)
+int check_column(Board sudoku, int column, int liczba)
 {
     int row;
     for (row = 0; row < 9; row++)
@@ -45,13 +45,13 @@ int check_collum(Board sudoku, int column, int liczba)
  * @brief preveri validnost v oknu
  * Preveri ali število se pojavi v istem oknu enkrat ali več
  * @param sudoku Board tip, ki zapisuje stanje igre ob vnosu vrednosti
- * @param collum x koordinata celice, v katerem bo vpisano število
+ * @param column x koordinata celice, v katerem bo vpisano število
  * @param row y koordinata celice, v katerem bo vpisano število
  * @param liczba število za vpisati v celico
  * @return 0, če se število ne pojavi v vrstici, ne-0 če se.
  */
 /* Function checks, if in given grid the number already exists */
-int check_grid(Board sudoku, int collum, int row, int liczba)
+int check_grid(Board sudoku, int column, int row, int liczba)
 {
     row = (row/3)*3;
     column = (column/3)*3;

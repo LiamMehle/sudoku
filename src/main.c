@@ -1,3 +1,13 @@
+
+/*
+ *
+ * Pri pisanju kode smo imeli v mislih nadgradnjo samega
+ * programa
+ * (algoritem za reševanje, algoritem za generiranje, timer,
+ *  itd.).
+ * 
+ */
+
 //#include <stdio.h>
 //#include <stdint.h>
 #include <string.h>
@@ -10,8 +20,7 @@
 #include "game.h"
 #include "screen_ops.h"
 #include "common.h"
-
-#define log_line 	printf("%d\n", __LINE__); fflush(stdout)
+#include "utils.h"
 
 enum menu_options {
 	menu_play = 1,
@@ -89,6 +98,7 @@ void show_tutorial() {
 	"\n"
 	"O/o - show original problem\n"
 	"Q/q - quit\n"
+	"S/s - solve (show solved) [BROKEN]\n"
 	"xyv - example: ab3\n"
 	"|||\n"
 	"||`-value, 0 = empty\n"

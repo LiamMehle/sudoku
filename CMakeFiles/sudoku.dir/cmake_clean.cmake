@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/sudoku.dir/src/main.c.o.d"
   "CMakeFiles/sudoku.dir/src/screen_ops.c.o"
   "CMakeFiles/sudoku.dir/src/screen_ops.c.o.d"
+  "CMakeFiles/sudoku.dir/src/sudoku_solve.c.o"
+  "CMakeFiles/sudoku.dir/src/sudoku_solve.c.o.d"
   "CMakeFiles/sudoku.dir/src/sudoku_validity_check.c.o"
   "CMakeFiles/sudoku.dir/src/sudoku_validity_check.c.o.d"
   "sudoku"

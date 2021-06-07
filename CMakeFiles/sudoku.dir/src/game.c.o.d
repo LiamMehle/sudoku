@@ -24,4 +24,5 @@ CMakeFiles/sudoku.dir/src/game.c.o: /home/wolf/git/sudoku/src/game.c \
  /usr/include/ctype.h /usr/include/bits/endian.h \
  /usr/include/bits/endianness.h /usr/include/bits/types/locale_t.h \
  /usr/include/bits/types/__locale_t.h /usr/include/string.h \
- /usr/include/strings.h /home/wolf/git/sudoku/src/sudoku_validity_check.h
+ /usr/include/strings.h /home/wolf/git/sudoku/src/sudoku_validity_check.h \
+ /home/wolf/git/sudoku/src/sudoku_solve.h
