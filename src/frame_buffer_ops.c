@@ -19,6 +19,10 @@ I|_|_|_|_|_|_|_|_|_|
 
 */
 
+/**
+ * @brief Naredi prazen podatkovni tip FrameBuffer
+ * @return prazen podatkovni tip FrameBuffer
+ */
 FrameBuffer make_framebuffer() {
 	FrameBuffer ret = {
 		.dim_x = width,
@@ -47,6 +51,7 @@ FrameBuffer make_framebuffer() {
 		WRITE('\n');
 	}
 
+// za narediti obrobe okoli okenca
 //#undef WRITE
 //#define WRITE_AT(A, X, Y) ret.data[board_at(X, Y)] = A
 //
@@ -79,6 +84,11 @@ FrameBuffer make_framebuffer() {
 	return ret;
 }
 
+/**
+ * @brief Izpiše Board podatkovni tip (odsvetovano)
+ * Izpiše board na ekran, primerno, za hiter prikaz stanja igre, npr. na glavnem ekranu
+ * @param board spremenljivko, za izpis
+ */
 void print_board(uint8_t* board) {
 	for(int x = 0; x < 9*2+1; x++)
 		putchar('_');
@@ -97,6 +107,10 @@ void print_board(uint8_t* board) {
 	}
 }
 
+/**
+ * @brief izpiše podatkovni tip FrameBuffer
+ * 
+ */
 int print_frame_buffer(const FrameBuffer fb) {
 	return fwrite(fb.data, fb.dim_x, fb.dim_y, stdout);
 }
