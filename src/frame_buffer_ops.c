@@ -109,7 +109,7 @@ void print_board(uint8_t* board) {
 
 /**
  * @brief izpiše podatkovni tip FrameBuffer
- * 
+ * @return število znakov, ki je bilo napisano na stdout.
  */
 int print_frame_buffer(const FrameBuffer fb) {
 	return fwrite(fb.data, fb.dim_x, fb.dim_y, stdout);
@@ -134,6 +134,12 @@ void framebuffer_to_board(const FrameBuffer fb, Board* board) {
 	}
 }
 
+
+/**
+ * @brief pretvori Board v FrameBuffer
+ * @param board izvor
+ * @param fb ponor
+ */
 void board_to_framebuffer(Board board, FrameBuffer fb) {
 	for(int y = 0; y < 9; y++) {
 		for(int x = 0; x < 9; x++) {
@@ -151,6 +157,11 @@ void board_to_framebuffer(Board board, FrameBuffer fb) {
 	}
 }
 
+/**
+ * @brief naredi kopijo FrameBuffer podatkovnega tipa
+ * @param src izvor (nespremenjen)
+ * @return kopija parametra
+ */
 FrameBuffer framebuffer_clone(const FrameBuffer src) {
 	FrameBuffer dst = {
 		.dim_x = width,
