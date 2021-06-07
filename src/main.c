@@ -1,6 +1,6 @@
 
 /*
- * 
+ * https://github.com/RunnerWolf25/sudoku
  * Pri pisanju kode smo imeli v mislih nadgradnjo samega
  * programa
  * (algoritem za reševanje, algoritem za generiranje, timer,
